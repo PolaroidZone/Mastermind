@@ -4,9 +4,10 @@ function generatCode () {
     while (digits.length < 4) {
         const digit = Math.floor(Math.random() * 10)
         if (!digits.includes(digit)) {
-            digit.push(digit)
+            digits.push(digit)
         }
     }
+    console.log(digits)
     return digits.join('')
 }
 
@@ -27,7 +28,7 @@ function calculateHint(secretCode, guess) {
 }
 
 const args = process.argv.slice(2);
-const secretCode = args[0];
+const secretCode = generatCode();
 const numberOfGuesses = parseInt(args[1]);
 const guesses = args.slice(2);
 
@@ -40,7 +41,6 @@ for (let i = 0; i < numberOfGuesses; i++) {
     }
     
 }
-
 
 
 
